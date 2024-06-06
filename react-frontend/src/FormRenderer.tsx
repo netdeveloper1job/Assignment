@@ -65,6 +65,7 @@ const FormRenderer: React.FC = () => {
                                                 size="small"
                                                 required={field.isRequired}
                                                 {...field.props}
+                                                label=""
                                             />
                                         </Grid>
                                     );
@@ -93,14 +94,13 @@ const FormRenderer: React.FC = () => {
                                                 {field?.props?.label}
                                             </InputLabel>
                                             <FormControl fullWidth>
-                                                <InputLabel id={`${field.props?.id}-label`}>{field.props?.label}</InputLabel>
                                                 <Select
                                                     labelId={`${field.props?.id}-label`}
                                                     id={field.props?.id}
                                                     size='small'
                                                     required={field.isRequired}
                                                 >
-                                                    {field.props?.options.map((option: { reactKey: React.Key | null | undefined; value: string | number | readonly string[] | undefined; display: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }) => (
+                                                    {field.props?.options.map((option: any) => (
                                                         <MenuItem key={option.reactKey} value={option.value}>
                                                             {option.display}
                                                         </MenuItem>
